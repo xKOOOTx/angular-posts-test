@@ -1,0 +1,9 @@
+.addPost__form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  max-width: 300px;
+  &_titleInput {
+    margin: 20px 0;
+  }
+}

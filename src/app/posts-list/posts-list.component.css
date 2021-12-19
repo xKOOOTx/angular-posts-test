@@ -1,0 +1,15 @@
+.post {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+.post__text {
+  margin: 10px 0;
+}
+.post__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=posts-list.component.css.map */
