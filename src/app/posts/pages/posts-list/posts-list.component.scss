@@ -1,0 +1,13 @@
+.post {
+  margin: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fff;
+  &__text {
+    margin: 10px 0;
+  }
+  &__info {
+    display: flex;
+    justify-content: space-between;
+  }
+}
