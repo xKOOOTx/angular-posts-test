@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-
+import {Observable} from 'rxjs';
 
 @Injectable()
 
@@ -17,7 +17,11 @@ export class DataService {
     this.http.get(this.posts)
       .subscribe(data => {
         this.serviceData = data
-        // console.log(this.serviceData)
+        console.log(this.serviceData)
       })
   }
+
+  // set data(value: string) { this.AddPostComponent.formValue = value; }
 }
+
+

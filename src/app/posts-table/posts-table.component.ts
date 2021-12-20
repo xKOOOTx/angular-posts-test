@@ -10,12 +10,12 @@ import { DataService } from "../data.service";
 })
 export class PostsTableComponent implements OnInit, AfterViewInit {
 
-  // set data(value: string) { this.dataService.serviceData = value; }
+  // set data(value: string) { this.AddPostComponent.formValue = value; }
 
-  constructor(public HomePageComponent: DataService) { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataSource.data = this.HomePageComponent.serviceData
+    this.dataSource.data = this.dataService.serviceData
   }
 
   displayedColumns: string[] = ['id', 'title', 'body'];
@@ -25,7 +25,6 @@ export class PostsTableComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    this.dataSource.data = this.HomePageComponent.serviceData
   }
 
 }

@@ -1,10 +1,12 @@
-<form class="addPost__form center">
-  <input
-    type="text"
-    class="addPost__form_titleInput"
-    value="Title"
-    [formControl]="postTitle"
-  >
-  <textarea class="addPost__form_bodyInput"></textarea>
+<form class="addPost__form center" [formGroup]="addPostForm">
+  <mat-form-field appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Textarea</mat-label>
+    <textarea matInput formControlName="text"></textarea>
+  </mat-form-field>
+  <button mat-stroked-button (click)="sendForm(addPostForm.value)">Отправить</button>
 </form>
 

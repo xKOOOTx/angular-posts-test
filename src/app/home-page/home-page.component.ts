@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Injectable} from "@angular/core";
+import {DataService} from '../data.service';
+import {Observable} from 'rxjs';
 
 @Injectable()
 @Component({
@@ -9,9 +11,17 @@ import {Injectable} from "@angular/core";
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.getPosts()
   }
 
 }
+
+// const obs = new Observable((observer) => {
+//   let watchId: number
+//   watchId = this.watchPosition((position: GeolocationPosition) => {
+//     observer.next(position);
+//   }
+// })

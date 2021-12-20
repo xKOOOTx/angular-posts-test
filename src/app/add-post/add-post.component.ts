@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormGroup, FormBuilder, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-add-post',
@@ -8,11 +8,25 @@ import { FormControl } from '@angular/forms';
 })
 export class AddPostComponent implements OnInit {
 
-  postTitle: new FormControl('');
-  constructor() { }
+  formValue: any;
+  addPostForm: FormGroup;
+
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
-
+    this.initForm();
   }
 
+  initForm() {
+    this.addPostForm = this.fb.group({
+      title: new FormControl(),
+      text: new FormControl()
+    })
+  }
+
+  sendForm(value:any) {
+    if (value.title && value.text) {
+      this.formValue = value
+    }
+  }
 }
