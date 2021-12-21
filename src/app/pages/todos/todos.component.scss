@@ -1,0 +1,27 @@
+.todo__item_title {
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(#000, 10%);
+  }
+}
+
+table {
+  margin-top: 100px;
+  width: 100%;
+  img {
+    width: 20px;
+  }
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.textLineThrough {
+  text-decoration: line-through;
+}
+
+.deleteBtn {
+  cursor: pointer;
+}
+

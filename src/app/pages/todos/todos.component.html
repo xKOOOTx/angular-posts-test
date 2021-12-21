@@ -1,1 +1,61 @@
-<p>todos works!</p>
+<div class="center">
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)"
+         class="mat-elevation-z8">
+
+    <!-- number Column -->
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by number">
+        No.
+      </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by title">
+        Title
+      </th>
+      <td mat-cell *matCellDef="let element"
+          class="todo__item_title"
+          [ngClass]="{textLineThrough: element.completed}"
+          (click)="element.completed = !element.completed"
+      > {{element.title}} </td>
+    </ng-container>
+
+    <!-- completed Column -->
+    <ng-container matColumnDef="completed">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by completed">
+        Completed
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <img src="./assets/check-circle-regular.svg" alt="completed" *ngIf="element.completed else notcompleted">
+        <ng-template #notcompleted>
+          <img src="./assets/times-circle-regular.svg" alt="notCompleted">
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell
+          *matCellDef="let element"
+          (click)="deleteTodo(element)"
+      >
+        <img
+          src="./assets/trash-alt-solid.svg"
+          alt="delete"
+          style="cursor: pointer"
+        >
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+
+</div>
