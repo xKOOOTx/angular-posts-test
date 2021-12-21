@@ -28,9 +28,9 @@
         Completed
       </th>
       <td mat-cell *matCellDef="let element">
-        <img src="./assets/check-circle-regular.svg" alt="completed" *ngIf="element.completed else notcompleted">
+        <img src="../../../../assets/check-circle-regular.svg" alt="completed" *ngIf="element.completed else notcompleted">
         <ng-template #notcompleted>
-          <img src="./assets/times-circle-regular.svg" alt="notCompleted">
+          <img src="../../../../assets/times-circle-regular.svg" alt="notCompleted">
         </ng-template>
       </td>
     </ng-container>
@@ -43,7 +43,7 @@
           (click)="deleteTodo(element)"
       >
         <img
-          src="./assets/trash-alt-solid.svg"
+          src="../../../../assets/trash-alt-solid.svg"
           alt="delete"
           style="cursor: pointer"
         >
@@ -57,5 +57,9 @@
                  showFirstLastButtons
                  aria-label="Select page of periodic elements">
   </mat-paginator>
-
+</div>
+<div class="modal"
+     *ngIf="isModalOpen"
+>
+  <app-todos-modal></app-todos-modal>
 </div>

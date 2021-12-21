@@ -1,13 +1,10 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import {TodosService} from '../../services/todos.service';
+import { AfterViewInit, Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
+import {TodosService} from '../../../services/todos.service';
 import {Subscription} from 'rxjs';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {coerceNumberProperty} from '@angular/cdk/coercion';
-
 
 @Component({
   selector: 'app-todos',
@@ -16,14 +13,14 @@ import {coerceNumberProperty} from '@angular/cdk/coercion';
 })
 export class TodosComponent implements OnInit, AfterViewInit {
 
+  isModalOpen: boolean = true;
   sub!: Subscription;
   displayedColumns: string[] = ['id', 'title', 'completed', 'delete'];
   dataSource = new MatTableDataSource();
 
   constructor(
     private toDosService: TodosService,
-    private _liveAnnouncer: LiveAnnouncer,
-    private fb: FormBuilder
+    private _liveAnnouncer: LiveAnnouncer
   ) { }
 
   @ViewChild(MatSort) sort!: MatSort;
@@ -53,14 +50,13 @@ export class TodosComponent implements OnInit, AfterViewInit {
   }
 
   announceSortChange(sortState: Sort) {
-    // This example uses English messages. If your application supports
-    // multiple language, you would internationalize these strings.
-    // Furthermore, you can customize the message to add additional
-    // details about the values being sorted.
     if (sortState.direction) {
       this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
   }
+
 }
+
+

@@ -15,9 +15,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from "@angular/forms";
-import {TodosComponent} from './pages/todos/todos.component';
+import {TodosComponent} from './pages/todos/pages/todos.component';
 import {MatSortModule} from '@angular/material/sort';
+import { TodosModalComponent } from './pages/todos/todos-modal/todos-modal.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import {MatSortModule} from '@angular/material/sort';
     PostsTableComponent,
     AddPostComponent,
     TodosComponent,
+    TodosModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import {MatSortModule} from '@angular/material/sort';
     MatButtonModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatSortModule
+    MatSortModule,
+    MatDialogModule,
+    MatSlideToggleModule
   ],
   providers: [
   ],
