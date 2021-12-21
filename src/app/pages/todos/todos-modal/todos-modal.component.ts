@@ -1,4 +1,4 @@
-import {Component, OnInit, Inject} from '@angular/core';
+import {Component, OnInit, Inject, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 
 
@@ -8,6 +8,9 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./todos-modal.component.scss']
 })
 export class TodosModalComponent implements OnInit {
+
+  @Output()
+  change: EventEmitter<any> = new EventEmitter<any>();
 
   isModalOpen:boolean = true;
   todosModalForm: any;
@@ -23,10 +26,12 @@ export class TodosModalComponent implements OnInit {
   initForm() {
     this.todosModalForm = this.fb.group({
       id: [''],
-      title: ['', Validators.required, Validators.minLength(10)],
+      title: '',
       completed: ['']
     })
   }
 
-
+  closeModal() {
+    this.change.emit()
+  }
 }

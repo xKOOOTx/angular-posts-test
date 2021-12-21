@@ -13,7 +13,7 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 })
 export class TodosComponent implements OnInit, AfterViewInit {
 
-  isModalOpen: boolean = true;
+  isModalOpen: boolean = false;
   sub!: Subscription;
   displayedColumns: string[] = ['id', 'title', 'completed', 'delete'];
   dataSource = new MatTableDataSource();
@@ -57,6 +57,10 @@ export class TodosComponent implements OnInit, AfterViewInit {
     }
   }
 
+  onValueChanged() {
+    console.log('log')
+    this.isModalOpen = false
+  }
 }
 
 

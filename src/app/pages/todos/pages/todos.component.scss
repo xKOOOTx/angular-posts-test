@@ -39,3 +39,12 @@ th.mat-sort-header-sorted {
   align-items: center;
   background-color: rgba(#000, .2);
 }
+
+.openModal {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+  button {
+    background-color: #fff;
+  }
+}
