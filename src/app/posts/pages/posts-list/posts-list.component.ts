@@ -1,6 +1,4 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { DataService } from "../../../data.service";
-import {HomePageComponent} from "../../../pages/home-page/home-page.component"
 import {PostsService} from '../../../services/posts.service';
 import {Subscription} from 'rxjs';
 
@@ -13,20 +11,23 @@ export class PostsListComponent implements OnInit, OnDestroy {
 
   data: any;
 
-  constructor(private postService: PostsService,
-              public homePage: HomePageComponent) { }
+  sub!: Subscription;
+
+  constructor(private postService: PostsService) { }
 
   ngOnInit(): void {
     this.getData();
   }
+
   getData() {
-    this.postService.getPosts()
-        .subscribe(res => {
-          this.data = res
-        })
+    this.sub = this.postService.getPosts()
+      .subscribe(res => {
+        this.data = res
+      })
   }
 
   ngOnDestroy(): void {
+    this.sub.unsubscribe()
   }
 
 }

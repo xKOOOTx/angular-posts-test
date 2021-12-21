@@ -4,20 +4,19 @@ import {HttpClientModule} from "@angular/common/http";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DataService } from "./data.service";
 import { NavigationComponent } from './navigation/navigation.component';
 import { PostsListComponent } from './posts/pages/posts-list/posts-list.component';
 import { PostsTableComponent } from './posts/pages/posts-table/posts-table.component';
-import { AddPostComponent } from './add-post/add-post.component';
+import { AddPostComponent } from './pages/add-post/add-post.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
-import { HomePageComponent } from './pages/home-page/home-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { TodosComponent } from './pages/todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,7 @@ import {MatCardModule} from '@angular/material/card';
     PostsListComponent,
     PostsTableComponent,
     AddPostComponent,
-    HomePageComponent
+    TodosComponent,
   ],
     imports: [
         BrowserModule,
@@ -42,8 +41,6 @@ import {MatCardModule} from '@angular/material/card';
         MatCardModule
     ],
   providers: [
-    DataService,
-    HomePageComponent
   ],
   bootstrap: [AppComponent]
 })

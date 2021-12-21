@@ -1,10 +1,10 @@
-<mat-card style="margin: 15px auto">
-  <form   [formGroup]="addPostForm">
-    <mat-form-field appearance="fill">
+<mat-card class="addPost__form">
+  <form [formGroup]="addPostForm">
+    <mat-form-field appearance="fill" class="addPost__form_input">
       <mat-label>Title</mat-label>
       <input matInput formControlName="title">
     </mat-form-field>
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" class="addPost__form_input">
       <mat-label>Textarea</mat-label>
       <textarea matInput formControlName="text"></textarea>
     </mat-form-field>
