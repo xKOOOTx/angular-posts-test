@@ -17,7 +17,7 @@ import {coerceNumberProperty} from '@angular/cdk/coercion';
 export class TodosComponent implements OnInit, AfterViewInit {
 
   sub!: Subscription;
-  displayedColumns: string[] = ['number', 'title', 'completed', 'delete'];
+  displayedColumns: string[] = ['id', 'title', 'completed', 'delete'];
   dataSource = new MatTableDataSource();
 
   constructor(
