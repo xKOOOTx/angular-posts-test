@@ -7,7 +7,7 @@ import {AppComponent} from './app.component';
 import {NavigationComponent} from './navigation/navigation.component';
 import {PostsListComponent} from './posts/pages/posts-list/posts-list.component';
 import {PostsTableComponent} from './posts/pages/posts-table/posts-table.component';
-import {AddPostComponent} from './pages/add-post/add-post.component';
+import {AddPostComponent} from './posts/pages/add-post/add-post.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from "@angular/material/paginator";
