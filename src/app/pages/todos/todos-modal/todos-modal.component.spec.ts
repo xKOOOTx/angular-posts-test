@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodosModalComponent } from './todos-modal.component';
+import { TodosModalComponent } from './dialog-overview-example-dialog.component';
 
-describe('TodosModalComponent', () => {
+describe('DialogOverviewExampleDialogComponent', () => {
   let component: TodosModalComponent;
   let fixture: ComponentFixture<TodosModalComponent>;
 

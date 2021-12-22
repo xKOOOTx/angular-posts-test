@@ -16,11 +16,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TodosComponent} from './pages/todos/pages/todos.component';
 import {MatSortModule} from '@angular/material/sort';
-import { TodosModalComponent } from './pages/todos/todos-modal/todos-modal.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {TodosModalComponent} from './pages/todos/todos-modal/todos-modal.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     PostsTableComponent,
     AddPostComponent,
     TodosComponent,
-    TodosModalComponent,
+    TodosModalComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatCardModule,
     MatSortModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatButtonToggleModule,
+    FormsModule,
+    MatSnackBarModule,
   ],
   providers: [
   ],

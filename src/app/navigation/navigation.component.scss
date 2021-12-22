@@ -1,20 +1,8 @@
 .navigation {
   display: flex;
   justify-content: space-evenly;
-  align-content: center;
-  margin-top: 10px;
-  &__element {
-    &_link {
-      padding: 10px;
-      border-radius: 4px;
-      background-color: #fff;
-      transition: background-color .2s ease-in-out;
-      &:hover {
-        background-color: darken(#fff, 7);
-      }
-      &:active {
-        background-color: darken(#fff, 40);
-      }
-    }
-  }
+}
+
+.mat-button-toggle-checked {
+  background-color: rgba(#ccc, .2);
 }

@@ -12,6 +12,4 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navText: string = 'some test text'
-
 }
