@@ -1,21 +1,27 @@
 <form class="todos-modal" [formGroup]="todosModalForm">
-  <div mat-dialog-content class="mat-dialog-content">
-    <p>Enter you todo</p>
+  <div mat-dialog-content>
+    <p>Todo id: {{ data.idNumber }}</p>
     <mat-form-field appearance="fill">
-      <mat-label>Todo task</mat-label>
-      <input matInput formControlName="title" formGroupName="title">
+      <mat-label>Todo</mat-label>
+      <input matInput #title [(ngModel)]="data.title" formControlName="title">
+      <mat-hint align="end">{{title.value.length}} / 10</mat-hint>
     </mat-form-field>
-  </div>
-  <div class="form__toggle">
-    <mat-slide-toggle>
-      Завершено()
+    <mat-slide-toggle
+      formControlName="isTaskCompleted"
+      [color]="color"
+      [required]="required"
+      (toggleChange)="isTaskCompletedBool = !isTaskCompletedBool"
+    >
+      Завершено(<span *ngIf="isTaskCompletedBool else notCompleted">Да</span><ng-template #notCompleted>Нет</ng-template>)
     </mat-slide-toggle>
   </div>
-  <div class="form__buttons">
-    <div mat-dialog-actions>
-      <button mat-button (click)="closeModal()">No Thanks</button>
-      <button mat-button>Ok</button>
-    </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+    <button mat-raised-button
+            color="primary"
+            [disabled]="!todosModalForm.valid"
+            [mat-dialog-close]="data.title"
+            (click)="sendTodos()"
+    >Ok</button>
   </div>
 </form>
-
