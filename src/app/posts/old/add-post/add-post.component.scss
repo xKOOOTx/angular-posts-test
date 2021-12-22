@@ -1,0 +1,11 @@
+.addPost__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 200px auto;
+  padding: 20px;
+  max-width: 500px;
+  &_input, button {
+    width: 100%;
+  }
+}

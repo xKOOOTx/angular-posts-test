@@ -8,12 +8,8 @@
       <mat-label>Textarea</mat-label>
       <textarea matInput formControlName="text"></textarea>
     </mat-form-field>
-    <button
-      mat-stroked-button
-      [disabled]="!addPostForm.valid"
-      (click)="sendForm()">Отправить</button>
+    <button mat-stroked-button (click)="sendForm()">Отправить</button>
   </form>
 </mat-card>
 
 
-<p>add-post works!</p>

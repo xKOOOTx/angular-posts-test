@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
-
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {FormGroup, FormBuilder, FormControl, Validators} from '@angular/forms';
 import {PostsService} from '../../../services/posts.service';
 
 @Component({
@@ -28,9 +27,8 @@ export class AddPostComponent implements OnInit {
 
   sendForm() {
     this.postsService.addPost(this.addPostForm.value)
-      .subscribe(res => {
-        console.log(res);
-      })
+        .subscribe(res => {
+          console.log(res);
+        })
   }
-
 }
