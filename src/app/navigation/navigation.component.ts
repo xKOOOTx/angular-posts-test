@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AppRoutingModule} from '../app-routing.module'
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private arrRouter: AppRoutingModule) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

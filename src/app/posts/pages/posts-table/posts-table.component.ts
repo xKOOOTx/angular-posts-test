@@ -1,8 +1,8 @@
-import {AfterViewInit, Component, ViewChild, OnInit, OnDestroy} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {PostsService} from '../../../services/posts.service';
+import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
+import {PostsService} from '../../../services/posts.service';
+import {MatTableDataSource} from '@angular/material/table';
+import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-posts-table',
@@ -46,4 +46,3 @@ export interface PeriodicElement {
   title: string;
   body: string;
 }
-

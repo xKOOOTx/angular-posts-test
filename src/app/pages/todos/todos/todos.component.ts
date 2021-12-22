@@ -1,13 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild, Inject, EventEmitter } from '@angular/core';
-import {TodosService} from '../../../services/todos.service';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {MatSort, Sort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator} from '@angular/material/paginator';
-import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatDialog} from '@angular/material/dialog';
-import {TodosModalComponent} from '../todos-modal/todos-modal.component';
-
+import {TodosService} from '../../../services/todos.service';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
+import {TodosModalComponent} from '../todos-modal/todos-modal.component'
 
 export interface DialogData {
   title: string;
@@ -19,7 +18,6 @@ export interface DialogData {
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-
 export class TodosComponent implements OnInit, AfterViewInit {
 
   title: string = '';
@@ -103,11 +101,4 @@ export class TodosComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
-
-
 }
-
-
-
-

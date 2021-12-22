@@ -1,20 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PostsListComponent} from "./posts/pages/posts-list/posts-list.component";
-import {PostsTableComponent} from "./posts/pages/posts-table/posts-table.component";
-import {AddPostComponent} from "./posts/pages/add-post/add-post.component";
-import {TodosComponent} from './pages/todos/pages/todos.component';
+import {AddPostComponent} from "./posts/old/add-post/add-post.component";
 
 const routes: Routes = [
-  { path: '', component: PostsListComponent },
-  { path: 'posts', component: PostsListComponent },
-  { path: 'postsTable', component: PostsTableComponent },
+  { path: '', loadChildren: () => import('./posts/pages/posts-list/posts-list.module').then(m => m.PostsListModule) },
+  { path: 'posts', loadChildren: () => import('./posts/pages/posts-list/posts-list.module').then(m => m.PostsListModule) },
+  { path: 'posts-table', loadChildren: () => import('./posts/pages/posts-table/posts-table.module').then(m => m.PostsTableModule) },
   { path: 'addPost', component: AddPostComponent },
-  { path: 'todos', component: TodosComponent },
+  { path: 'todos', loadChildren: () => import('./pages/todos/todos/todos.module').then(m => m.TodosModule) },
+  { path: 'add-post', loadChildren: () => import('./posts/pages/add-post/add-post.module').then(m => m.AddPostModule) },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+// @ts-ignore
 export class AppRoutingModule { }

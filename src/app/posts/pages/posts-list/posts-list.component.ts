@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {PostsService} from '../../../services/posts.service';
 import {Subscription} from 'rxjs';
+import {PostsService} from '../../../services/posts.service';
 
 @Component({
   selector: 'app-posts-list',
