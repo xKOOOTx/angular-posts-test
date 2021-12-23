@@ -1,0 +1,24 @@
+<div class="popup">
+  <div class="popup__title">
+    <p>id. {{ data.id }}</p>
+    <hr>
+    <p style="font-weight: bold">Title:</p>
+    <p>{{ data.title }}</p>
+  </div>
+  <div class="popup__completed">
+    <mat-slide-toggle [color]="color" [(ngModel)]="data.completed">
+      <p>
+        Завершено
+        <span
+          *ngIf="data.completed else notcompleted"
+          style="color: green"
+        >
+          (Да)
+        </span>
+        <ng-template #notcompleted><span style="color: red">(Нет)</span></ng-template>
+    </mat-slide-toggle>
+  </div>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close="">Закрыть</button>
+  </mat-dialog-actions>
+</div>

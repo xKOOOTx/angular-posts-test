@@ -5,7 +5,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {NavigationComponent} from './navigation/navigation.component';
-import {AddPostComponent} from './posts/old/add-post/add-post.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from "@angular/material/paginator";
@@ -20,13 +19,16 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {TodosModalComponent} from './pages/todos/todos-modal/todos-modal.component';
+import { PostsListPopupComponent } from './posts/pages/popup/posts-list-popup.component';
+import { TodosPopupComponent } from './pages/todos/todos-popup/todos-popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    AddPostComponent,
-    TodosModalComponent
+    TodosModalComponent,
+    PostsListPopupComponent,
+    TodosPopupComponent
   ],
   imports: [
     BrowserModule,

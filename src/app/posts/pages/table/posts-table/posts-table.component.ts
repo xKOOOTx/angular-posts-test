@@ -1,8 +1,10 @@
 import {AfterViewInit, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {PostsService} from '../../../services/posts.service';
+import {PostsService} from '../../../../services/posts.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
+import {PostsListPopupComponent} from '../../popup/posts-list-popup.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-posts-table',
@@ -13,7 +15,10 @@ export class PostsTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   sub!: Subscription;
 
-  constructor(private postService: PostsService) { }
+  constructor(
+    private postService: PostsService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     this.getData()
@@ -38,6 +43,13 @@ export class PostsTableComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe(res => {
         this.dataSource.data = res
       })
+  }
+
+  openDialog(value:any) {
+    this.dialog.open(PostsListPopupComponent, {
+      data: value
+    });
+    console.log(value)
   }
 }
 

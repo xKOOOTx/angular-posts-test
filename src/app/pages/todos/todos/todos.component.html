@@ -24,7 +24,7 @@
       <td mat-cell *matCellDef="let element"
           class="todo__item_title"
           [ngClass]="{textLineThrough: element.completed, completed:element.completed}"
-          (click)="element.completed = !element.completed"
+          (click)="openPopup(element)"
       > {{element.title}} </td>
     </ng-container>
 
@@ -33,7 +33,11 @@
       <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by completed">
         Completed
       </th>
-      <td mat-cell *matCellDef="let element">
+      <td
+        mat-cell
+        *matCellDef="let element"
+        (click)="element.completed = !element.completed"
+      >
         <img src="../../../../assets/check-circle-regular.svg" alt="completed" *ngIf="element.completed else notcompleted">
         <ng-template #notcompleted>
           <img src="../../../../assets/times-circle-regular.svg" alt="notCompleted">

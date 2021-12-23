@@ -1,0 +1,12 @@
+.popup {
+  min-width: 300px;
+  &__title {
+    margin: 20px 0;
+    p {
+      padding: 10px 0;
+    }
+  }
+  &__completed {
+    margin: 10px 0;
+  }
+}

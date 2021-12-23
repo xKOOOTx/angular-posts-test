@@ -7,6 +7,8 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
 import {TodosModalComponent} from '../todos-modal/todos-modal.component'
+import {PostsListPopupComponent} from '../../../posts/pages/popup/posts-list-popup.component';
+import {TodosPopupComponent} from '../todos-popup/todos-popup.component';
 
 export interface DialogData {
   title: string;
@@ -100,5 +102,12 @@ export class TodosComponent implements OnInit, AfterViewInit {
         console.log(this.dataSource.filteredData)
       }
     });
+  }
+
+  openPopup(value:any) {
+    this.dialog.open(TodosPopupComponent, {
+      data: value
+    });
+    console.log(value)
   }
 }
