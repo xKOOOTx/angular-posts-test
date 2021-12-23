@@ -16,12 +16,12 @@
     </mat-slide-toggle>
   </div>
   <div mat-dialog-actions>
-    <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+    <button mat-raised-button (click)="onNoClick()">Закрыть окно</button>
     <button mat-raised-button
             color="primary"
             [disabled]="!todosModalForm.valid"
             [mat-dialog-close]="data.title"
             (click)="sendTodos()"
-    >Ok</button>
+    >Создать</button>
   </div>
 </form>
