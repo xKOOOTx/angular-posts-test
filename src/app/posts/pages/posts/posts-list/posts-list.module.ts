@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PostsListRoutingModule } from './posts-list-routing.module';
 import { PostsListComponent } from './posts-list.component';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PostsListComponent } from './posts-list.component';
   ],
   imports: [
     CommonModule,
-    PostsListRoutingModule
+    PostsListRoutingModule,
+    RouterModule.forChild([])
   ]
 })
 export class PostsListModule { }

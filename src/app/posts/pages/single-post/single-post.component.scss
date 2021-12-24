@@ -1,0 +1,15 @@
+.single-post {
+  h2 {
+    margin-bottom: 20px;
+  }
+  &__index {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+  }
+}

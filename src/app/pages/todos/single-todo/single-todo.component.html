@@ -1,0 +1,23 @@
+<mat-card class="single-todo center">
+  <div class="single-todo__nav">
+    <button
+      routerLink="/todos"
+      mat-button>Назад</button>
+  </div>
+  <h2>{{ todo.title }}</h2>
+  <div class="single-todo__index">
+    <p>postID. {{ todo.id }}</p>
+    <p>userID. {{ todo.userId }}</p>
+    <div>
+      <mat-slide-toggle
+        [(ngModel)]="todo.completed"
+        (toggleChange)="foo()"
+      >
+        <p *ngIf="todo.completed else notcompleted">Завершено(Да)</p>
+        <ng-template #notcompleted>
+          Завершено(нет)
+        </ng-template>
+      </mat-slide-toggle>
+    </div>
+  </div>
+</mat-card>

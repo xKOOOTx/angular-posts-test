@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {PostsService} from '../../../../services/posts.service';
 import {MatDialog} from '@angular/material/dialog';
-import {PostsListPopupComponent} from '../../popup/posts-list-popup.component';
 
 @Component({
   selector: 'app-posts-list',
@@ -20,14 +19,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
     private postService: PostsService,
     public dialog: MatDialog
   ) { }
-
-  openDialog(value:any) {
-    this.dialog.open(PostsListPopupComponent, {
-      data: value
-    });
-    console.log(value)
-  }
-
 
   ngOnInit(): void {
     this.getData();

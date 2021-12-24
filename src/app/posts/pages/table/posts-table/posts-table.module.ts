@@ -5,6 +5,7 @@ import { PostsTableRoutingModule } from './posts-table-routing.module';
 import { PostsTableComponent } from './posts-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
@@ -16,6 +17,13 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     PostsTableRoutingModule,
     MatTableModule,
     MatPaginatorModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        pathMatch: 'full',
+        component: PostsTableComponent
+      }
+    ])
   ]
 })
 export class PostsTableModule { }

@@ -3,7 +3,6 @@ import {Subscription} from 'rxjs';
 import {PostsService} from '../../../../services/posts.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
-import {PostsListPopupComponent} from '../../popup/posts-list-popup.component';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -40,16 +39,9 @@ export class PostsTableComponent implements OnInit, AfterViewInit, OnDestroy {
 
   getData() {
     this.sub = this.postService.getPosts()
-      .subscribe(res => {
+      .subscribe((res:any) => {
         this.dataSource.data = res
       })
-  }
-
-  openDialog(value:any) {
-    this.dialog.open(PostsListPopupComponent, {
-      data: value
-    });
-    console.log(value)
   }
 }
 

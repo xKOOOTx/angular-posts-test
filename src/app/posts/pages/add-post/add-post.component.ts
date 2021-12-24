@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 
 import {PostsService} from '../../../services/posts.service';
@@ -8,10 +8,11 @@ import {PostsService} from '../../../services/posts.service';
   templateUrl: './add-post.component.html',
   styleUrls: ['./add-post.component.scss']
 })
+
 export class AddPostComponent implements OnInit {
 
-  formValue: any;
   addPostForm: any;
+  sub!: any;
 
   constructor(private fb: FormBuilder, private postsService: PostsService) { }
 
@@ -27,10 +28,9 @@ export class AddPostComponent implements OnInit {
   }
 
   sendForm() {
-    this.postsService.addPost(this.addPostForm.value)
+    this.sub = this.postsService.addPost(this.addPostForm.value)
       .subscribe(res => {
         console.log(res);
       })
   }
-
 }

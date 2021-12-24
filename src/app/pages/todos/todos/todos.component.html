@@ -24,7 +24,7 @@
       <td mat-cell *matCellDef="let element"
           class="todo__item_title"
           [ngClass]="{textLineThrough: element.completed, completed:element.completed}"
-          (click)="openPopup(element)"
+          routerLink="{{ element.id }}"
       > {{element.title}} </td>
     </ng-container>
 

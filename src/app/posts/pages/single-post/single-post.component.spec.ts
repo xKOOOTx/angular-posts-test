@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostsListPopupComponent } from './posts-list-popup.component';
+import { SinglePostComponent } from './single-post.component';
 
-describe('PostsListPopupComponent', () => {
-  let component: PostsListPopupComponent;
-  let fixture: ComponentFixture<PostsListPopupComponent>;
+describe('SinglePostComponent', () => {
+  let component: SinglePostComponent;
+  let fixture: ComponentFixture<SinglePostComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PostsListPopupComponent ]
+      declarations: [ SinglePostComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PostsListPopupComponent);
+    fixture = TestBed.createComponent(SinglePostComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

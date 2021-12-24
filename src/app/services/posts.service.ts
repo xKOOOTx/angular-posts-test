@@ -9,9 +9,10 @@ export class PostsService {
 
   constructor(private http: HttpClient) { }
 
-  getPosts(): Observable<any> {
+  getPosts() {
     return this.http.get(`https://jsonplaceholder.typicode.com/posts`);
   }
+
   addPost(body: any): Observable<any> {
     return this.http.post(`https://jsonplaceholder.typicode.com/posts`, body);
   }

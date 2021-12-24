@@ -19,16 +19,19 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {TodosModalComponent} from './pages/todos/todos-modal/todos-modal.component';
-import { PostsListPopupComponent } from './posts/pages/popup/posts-list-popup.component';
-import { TodosPopupComponent } from './pages/todos/todos-popup/todos-popup.component';
+import {TodosPopupComponent} from './pages/todos/todos-popup/todos-popup.component';
+import { SinglePostComponent } from './posts/pages/single-post/single-post.component';
+import {MatIconModule} from '@angular/material/icon';
+import { SingleTodoComponent } from './pages/todos/single-todo/single-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     TodosModalComponent,
-    PostsListPopupComponent,
-    TodosPopupComponent
+    TodosPopupComponent,
+    SinglePostComponent,
+    SingleTodoComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,16 +43,18 @@ import { TodosPopupComponent } from './pages/todos/todos-popup/todos-popup.compo
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ReactiveFormsModule,
     MatCardModule,
     MatSortModule,
     MatDialogModule,
     MatSlideToggleModule,
     MatButtonToggleModule,
-    FormsModule,
     MatSnackBarModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatIconModule,
   ],
-  providers: [
+  providers: [],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })

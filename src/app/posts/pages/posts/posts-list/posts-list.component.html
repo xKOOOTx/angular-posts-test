@@ -2,7 +2,8 @@
   <div
     class="post"
     *ngFor="let post of data"
-    (click)="openDialog(post)"
+    routerLink="post/{{ post.id }}"
+    [queryParams]="post.id"
     style="cursor: pointer;"
   >
     <h3 class="post__header">{{ post.title }}</h3>
