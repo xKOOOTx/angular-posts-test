@@ -3,8 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { PostsListRoutingModule } from './posts-list-routing.module';
 import { PostsListComponent } from './posts-list.component';
-import {RouterModule} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {SinglePostComponent} from '../../single-post/single-post.component';
 
+const routes: Routes = [
+  { path: '', component: PostsListComponent },
+  { path: './', pathMatch:'full', component: SinglePostComponent }
+]
 
 @NgModule({
   declarations: [
@@ -13,7 +18,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     PostsListRoutingModule,
-    RouterModule.forChild([])
+    RouterModule.forChild(routes)
   ]
 })
 export class PostsListModule { }

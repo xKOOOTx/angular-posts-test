@@ -1,19 +1,8 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PostsListComponent } from './posts-list.component';
-import {SinglePostComponent} from '../../single-post/single-post.component';
-
-const routes: Routes = [
-  { path: '', component: PostsListComponent },
-  {
-    path: 'post/:id',
-    pathMatch: 'full',
-    component: SinglePostComponent
-  },
-];
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [RouterModule.forChild([])],
   exports: [RouterModule]
 })
 export class PostsListRoutingModule { }

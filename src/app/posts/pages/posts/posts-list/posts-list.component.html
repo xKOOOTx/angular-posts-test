@@ -1,9 +1,9 @@
 <div class="center">
-  <div
+  <a
     class="post"
     *ngFor="let post of data"
-    routerLink="post/{{ post.id }}"
-    [queryParams]="post.id"
+    [routerLink]="['./', post.id]"
+    (click)="foo(post.id)"
     style="cursor: pointer;"
   >
     <h3 class="post__header">{{ post.title }}</h3>
@@ -12,5 +12,5 @@
       <p class="post__info_userId">userId. {{ post.userId }}</p>
       <p class="post__info_id">id. {{ post.id }}</p>
     </div>
-  </div>
+  </a>
 </div>

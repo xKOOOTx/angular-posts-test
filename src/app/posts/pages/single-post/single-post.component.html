@@ -1,8 +1,8 @@
 <mat-card class="single-post center">
   <div class="single-post__nav">
-    <button
-      routerLink=""
-      mat-button>Назад</button>
+    <a
+      [routerLink]="['./']"
+      mat-button>Назад</a>
   </div>
   <h2>{{ post.title }}</h2>
   <p>{{ post.body }}</p>

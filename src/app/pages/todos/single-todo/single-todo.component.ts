@@ -35,7 +35,7 @@ export class SingleTodoComponent implements OnInit {
 
   getUrl() {
     this.getPostsArray = this.router.params.subscribe(params => {
-      this.postIndex = params;
+      this.postIndex = params['id'];
     })
   }
 
@@ -46,6 +46,7 @@ export class SingleTodoComponent implements OnInit {
   }
 
   foo() {
-    console.log('toggle changed')
+    this.todo.completed = !this.todo.completed
+    console.log(this.todo.completed)
   }
 }

@@ -13,6 +13,10 @@ export class PostsService {
     return this.http.get(`https://jsonplaceholder.typicode.com/posts`);
   }
 
+  getSinglePost(postId:number) {
+    return this.http.get(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+  }
+
   addPost(body: any): Observable<any> {
     return this.http.post(`https://jsonplaceholder.typicode.com/posts`, body);
   }

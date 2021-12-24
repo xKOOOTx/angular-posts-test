@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Params} from '@angular/router';
 import {PostsService} from '../../../services/posts.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-single-post',
@@ -10,9 +11,8 @@ import {PostsService} from '../../../services/posts.service';
 
 export class SinglePostComponent implements OnInit, OnDestroy {
 
-  postIndex: any;
-  getPostsArray: any;
-  getPostsSub:any;
+  sub: Subscription = new Subscription();
+  postId: any;
   post: any = {
     id: null,
     userId: null,
@@ -26,23 +26,23 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit(): void {
-    this.getUrl();
-    this.getPosts(this.postService, this.postIndex.id);
+    this.getDataUrl();
+    this.getSinglePost();
   }
+
+  getDataUrl() {
+    this.router.params.subscribe((params: Params) => {
+      this.postId = params['id'];
+    })
+  }
+
+  getSinglePost() {
+    this.sub = this.postService.getSinglePost(this.postId).subscribe(res => {
+      this.post = res;
+    })
+  }
+
   ngOnDestroy() {
-    this.getPostsArray.unsubscribe()
-    this.getPostsSub.unsubscribe()
-  }
-
-  getUrl() {
-    this.getPostsArray = this.router.params.subscribe(params => {
-      this.postIndex = params;
-    })
-  }
-
-  getPosts(array:any, index:number) {
-    this.getPostsSub = array.getPosts().subscribe((value:any) => {
-      this.post = value.find((id:any) => id.id == index)
-    })
+    this.sub.unsubscribe()
   }
 }
