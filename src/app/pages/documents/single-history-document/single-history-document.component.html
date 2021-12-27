@@ -1,0 +1,15 @@
+
+<mat-card>
+  <div style="display: flex; justify-content: space-between">
+    <h2>{{ history.title }}</h2>
+    <a routerLink="../">
+      <button mat-button>Назад</button>
+    </a>
+  </div>
+  <p>{{ history.body }}</p>
+  <p>{{ history.phone }}</p>
+  <div *ngIf="history.completed else notCompleted"><p>Завершено</p></div>
+  <ng-template #notCompleted>
+    <p>На рассмотрении</p>
+  </ng-template>
+</mat-card>

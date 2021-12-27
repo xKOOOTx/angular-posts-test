@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home.component';
+import {NavigationComponent} from '../../navigation/navigation.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatCardModule} from '@angular/material/card';
+
+
+const routes: Routes = [
+  {path: '', component: HomeComponent, children: [
+      {path: 'posts', loadChildren: () => import('../../posts/posts.module').then(m => m.PostsModule)},
+      {path: 'todos', loadChildren: () => import('../todos/todos.module').then(m => m.TodosModule)},
+      {path: 'documents', loadChildren: () => import('../documents/documents.module').then(m => m.DocumentsModule)}
+    ]},
+]
+@NgModule({
+  declarations: [
+    HomeComponent,
+    NavigationComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatButtonToggleModule,
+    MatCardModule
+  ]
+})
+export class HomeModule { }

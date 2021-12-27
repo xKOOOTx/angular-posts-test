@@ -6,7 +6,7 @@ import {TodosService} from '../../../services/todos.service';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import {MatSort, Sort} from '@angular/material/sort';
 import {MatPaginator} from '@angular/material/paginator';
-import {TodosModalComponent} from '../todos-modal/todos-modal.component'
+import {TodosModalComponent} from '../todos-modal/todos-modal.component';
 
 export interface DialogData {
   title: string;
@@ -66,7 +66,7 @@ export class TodosComponent implements OnInit, AfterViewInit {
 
   announceSortChange(sortState: Sort) {
     if (sortState.direction) {
-      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`);
+      this._liveAnnouncer.announce(`Sorted ${sortState.direction}ending`)
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }

@@ -1,8 +1,9 @@
 <mat-card class="single-todo center">
   <div class="single-todo__nav">
+    <h1>Подробная информация по todo</h1>
     <button
       routerLink="/todos"
-      mat-button>Назад</button>
+      mat-button>Закрыть</button>
   </div>
   <h2>{{ todo.title }}</h2>
   <div class="single-todo__index">
@@ -11,7 +12,7 @@
     <div>
       <mat-slide-toggle
         [(ngModel)]="todo.completed"
-        (toggleChange)="foo()"
+        disabled
       >
         <p *ngIf="todo.completed else notcompleted">Завершено(Да)</p>
         <ng-template #notcompleted>

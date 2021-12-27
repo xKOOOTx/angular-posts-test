@@ -48,7 +48,7 @@ export class TodosModalComponent implements OnInit {
   }
 
   sendTodos() {
-    // this.toDosService.sendTodos(this.todosModalForm.value)
+    this.toDosService.sendTodos(this.todosModalForm.value)
     console.log(this.todosModalForm.value)
     this.resetForm()
   }

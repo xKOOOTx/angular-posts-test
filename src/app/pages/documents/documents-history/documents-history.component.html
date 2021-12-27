@@ -1,1 +1,8 @@
-<p>documents-history works!</p>
+<router-outlet></router-outlet>
+<a
+  *ngFor="let item of history"
+  [routerLink]="['./', item.id]">
+  <mat-card>
+    <h2>{{ item.title }}</h2>
+  </mat-card>
+</a>

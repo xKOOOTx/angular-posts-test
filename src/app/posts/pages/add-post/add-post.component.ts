@@ -27,10 +27,10 @@ export class AddPostComponent implements OnInit {
     })
   }
 
-  sendForm() {
-    this.sub = this.postsService.addPost(this.addPostForm.value)
-      .subscribe(res => {
-        console.log(res);
-      })
-  }
+  // sendForm() {
+  //   this.sub = this.postsService.addPost(this.addPostForm.value)
+  //     .subscribe(res => {
+  //       console.log(res);
+  //     })
+  // }
 }

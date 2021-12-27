@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {DocumentHistoryService} from '../../../services/document-history.service';
 
 @Component({
-  selector: 'app-documents-history',
-  templateUrl: './documents-history.component.html',
-  styleUrls: ['./documents-history.component.scss']
+  selector: 'app-single-history-document',
+  templateUrl: './single-history-document.component.html',
+  styleUrls: ['./single-history-document.component.scss']
 })
-export class DocumentsHistoryComponent implements OnInit {
+export class SingleHistoryDocumentComponent implements OnInit {
 
   history: any;
 
@@ -19,10 +19,8 @@ export class DocumentsHistoryComponent implements OnInit {
   }
 
   getHistoryData() {
-    this.history = this.historyService.history;
+    this.history = this.historyService.history[0];
+    console.log(this.history)
   }
 
 }
-
-
-

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {TodosService} from '../../../services/todos.service';
-import { TodosComponent } from '../todos/todos.component';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-single-todo',
@@ -10,9 +10,10 @@ import { TodosComponent } from '../todos/todos.component';
 })
 export class SingleTodoComponent implements OnInit {
 
-  postIndex: any;
+  todoIndex: any;
   getPostsArray: any;
   getPostsSub:any;
+  sub: Subscription | undefined;
   todo: any = {
     id: null,
     userId: null,
@@ -21,12 +22,14 @@ export class SingleTodoComponent implements OnInit {
   }
   constructor(
     private router: ActivatedRoute,
-    private todoService: TodosService
+    private todoService: TodosService,
   ) { }
 
   ngOnInit(): void {
     this.getUrl();
-    this.getPosts(this.todoService, this.postIndex.id);
+    // this.getPosts(this.todoService, this.todoIndex.id);
+    this.getPosts(this.todoService, this.todoIndex);
+    this.getSingleTodo();
   }
   ngOnDestroy() {
     this.getPostsArray.unsubscribe()
@@ -35,7 +38,13 @@ export class SingleTodoComponent implements OnInit {
 
   getUrl() {
     this.getPostsArray = this.router.params.subscribe(params => {
-      this.postIndex = params['id'];
+      this.todoIndex = params['id'];
+    })
+  }
+
+  getSingleTodo() {
+    this.sub = this.todoService.getSingleTogo(this.todoIndex).subscribe(params => {
+      this.todo = params;
     })
   }
 

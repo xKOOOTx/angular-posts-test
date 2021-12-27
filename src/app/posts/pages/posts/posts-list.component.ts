@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
-import {PostsService} from '../../../../services/posts.service';
+import {PostsService} from '../../../services/posts.service';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -13,7 +13,6 @@ export class PostsListComponent implements OnInit, OnDestroy {
   data: any;
 
   sub!: Subscription;
-
 
   constructor(
     private postService: PostsService,
@@ -35,8 +34,8 @@ export class PostsListComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe()
   }
 
-  foo(id:any) {
-    this.postService.getSinglePost(id);
-  }
+  // foo(id:any) {
+  //   this.postService.getSinglePost(id);
+  // }
 
 }

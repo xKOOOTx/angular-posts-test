@@ -23,10 +23,15 @@ export class TodosService {
   getTodos(): Observable<any> {
     return this.http.get('https://jsonplaceholder.typicode.com/todos');
   }
+
+  getSingleTogo(todoId:number) {
+    return this.http.get(`https://jsonplaceholder.typicode.com/todos/${todoId}`)
+  }
+
   sendTodos(val: any): Subscription {
     const body = {id: val.id, title: val.title}
     return this.http.post<any>('https://jsonplaceholder.typicode.com/todos', body)
-      .subscribe(data => {
+      .subscribe(val => {
         console.log(val)
         this.postId = val
         console.log(val.id)
