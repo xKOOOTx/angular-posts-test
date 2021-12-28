@@ -17,12 +17,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { PostsHomeComponent } from './pages/posts-home/posts-home.component';
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', component: PostsListComponent, children: [
-      {path: ':id', pathMatch: 'prefix', component: SinglePostComponent}
-    ]
-  },
-  {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
-  {path: 'postsTable', pathMatch: 'full', component: PostsTableComponent},
+  {path: '', component: PostsListComponent, children: [
+      {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
+      {path: 'postsTable', pathMatch: 'full', component: PostsTableComponent},
+    ]},
+  {path: ':id', component: SinglePostComponent},
+
+
+
 ]
 
 @NgModule({

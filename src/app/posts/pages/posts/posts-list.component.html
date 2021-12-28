@@ -1,23 +1,21 @@
 <div class="center">
-  <ul class="posts__navigation center">
-    <li>
-      <a routerLink="postsTable" class="posts__navigation_link">
-        <mat-button-toggle>
-          Posts Table
-        </mat-button-toggle>
-      </a>
-    </li>
-    <li>
-      <a routerLink="addPost" class="posts__navigation_link">
-        <mat-button-toggle>
-          Add post
-        </mat-button-toggle>
-      </a>
-    </li>
-  </ul>
-
+  <ul class="posts__navigation" style="display: flex; justify-content: center">
+      <li>
+        <a routerLink="postsTable" class="posts__navigation_link">
+          <mat-button-toggle>
+            Posts Table
+          </mat-button-toggle>
+        </a>
+      </li>
+      <li>
+        <a routerLink="addPost" class="posts__navigation_link">
+          <mat-button-toggle>
+            Add post
+          </mat-button-toggle>
+        </a>
+      </li>
+    </ul>
   <router-outlet></router-outlet>
-
   <div class="post" *ngFor="let post of data">
     <a [routerLink]="['./', post.id]">
       <h3 class="post__header">{{ post.title }}</h3>
