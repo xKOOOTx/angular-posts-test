@@ -11,19 +11,23 @@ const routes: Routes = [
   {path: '', component: HomeComponent, children: [
       {path: 'posts', loadChildren: () => import('../../posts/posts.module').then(m => m.PostsModule)},
       {path: 'todos', loadChildren: () => import('../todos/todos.module').then(m => m.TodosModule)},
-      {path: 'documents', loadChildren: () => import('../documents/documents.module').then(m => m.DocumentsModule)}
+      {path: 'documents', loadChildren: () => import('../documents/documents.module').then(m => m.DocumentsModule)},
+      {path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)}
     ]},
 ]
 @NgModule({
-  declarations: [
-    HomeComponent,
-    NavigationComponent
-  ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatButtonToggleModule,
-    MatCardModule
-  ]
+    declarations: [
+        HomeComponent,
+        NavigationComponent
+    ],
+    exports: [
+        NavigationComponent
+    ],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        MatButtonToggleModule,
+        MatCardModule
+    ]
 })
 export class HomeModule { }

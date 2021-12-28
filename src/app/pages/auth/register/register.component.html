@@ -1,0 +1,38 @@
+<form action="" [formGroup]="registerForm" class="register-form form" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>Имя</mat-label>
+    <input matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Фамилия</mat-label>
+    <input matInput formControlName="surname">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Возраст</mat-label>
+    <mat-select formControlName="age">
+      <mat-option *ngFor="let value of age" value="{{ value }}">{{ value }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Пол</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="male">Муж.</mat-option>
+      <mat-option value="female">Жен.</mat-option>
+      <mat-option value="helicopter">Боевой вертолет</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your email</mat-label>
+    <input matInput placeholder="pat@example.com" formControlName="email" required>
+    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Phone number</mat-label>
+    <example-tel-input formControlName="tel" required></example-tel-input>
+    <mat-icon matSuffix>phone</mat-icon>
+    <mat-hint>Include area code</mat-hint>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary">Зарегистрироваться</button>
+</form>
