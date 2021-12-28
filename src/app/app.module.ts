@@ -19,7 +19,7 @@ import {MyTelInput} from './pages/auth/register/register.component';
 
 @NgModule({
   declarations: [
-    MyTelInput,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +39,6 @@ import {MyTelInput} from './pages/auth/register/register.component';
     MatSnackBar,
   ],
   exports: [
-    MyTelInput
   ],
   bootstrap: [AppComponent]
 })

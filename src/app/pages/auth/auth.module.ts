@@ -14,7 +14,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatOptionModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
-import {AppModule} from '../../app.module';
+import {MyTelInput} from './register/register.component';
+
 
 const routes: Routes = [
   {path: '', component: AuthComponent, children: [
@@ -30,7 +31,8 @@ const routes: Routes = [
     AuthComponent,
     AuthNavComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MyTelInput,
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,9 @@ const routes: Routes = [
     MatOptionModule,
     MatSelectModule,
     MatCardModule,
-    AppModule
-  ]
+  ],
+  exports: [
+    MyTelInput
+  ],
 })
 export class AuthModule { }
