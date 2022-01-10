@@ -1,10 +1,14 @@
-<div class="post" *ngFor="let post of data">
-  <a [routerLink]="['./', post.id]">
-    <h3 class="post__header">{{ post.title }}</h3>
-    <p class="post__text">{{ post.body }}</p>
-    <div class="post__info">
-      <p class="post__info_id">id. {{ post.id }}</p>
-      <p class="post__info_userId">userId. {{ post.userId }}</p>
-    </div>
+<div class="posts">
+  <a class="post" *ngFor="let post of data" [routerLink]="['./', post.id]">
+    <mat-card>
+      <h3 class="post__header">{{ post.title }}</h3>
+      <p class="post__text">{{ post.body }}</p>
+      <div class="post__info">
+        <p class="post__info_id">id. {{ post.id }}</p>
+        <p class="post__info_userId">userId. {{ post.userId }}</p>
+      </div>
+    </mat-card>
   </a>
 </div>
+
+

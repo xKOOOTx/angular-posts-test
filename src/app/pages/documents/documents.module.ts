@@ -15,10 +15,15 @@ import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule} from '@angular/forms';
 import { SingleHistoryDocumentComponent } from './single-history-document/single-history-document.component';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthGuard} from '../../services/auth.guard';
 
 const routes: Routes = [
   {path: '',  component: DocumentsComponent, children: [
-      {path: 'sendNew', component: SendDocumentPageComponent},
+      {
+        path: 'sendNew',
+        canDeactivate: [AuthGuard],
+        component: SendDocumentPageComponent
+      },
       {path: '', redirectTo:'sendNew', pathMatch:'full'},
       {path: 'history', component: DocumentsHistoryComponent, children: [
           {path: ':id', component: SingleHistoryDocumentComponent}

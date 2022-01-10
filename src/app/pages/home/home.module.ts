@@ -6,14 +6,26 @@ import {NavigationComponent} from '../../navigation/navigation.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {AuthGuard} from '../../services/auth.guard';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
-      {path: 'posts', loadChildren: () => import('../../posts/posts.module').then(m => m.PostsModule)},
-      {path: '', redirectTo:'posts', pathMatch: 'full'},
+      {
+        path: 'posts',
+        loadChildren: () => import('../../posts/posts.module').then(m => m.PostsModule)},
+      {
+        path: '',
+        canDeactivate: [AuthGuard],
+        canActivateChild: [AuthGuard],
+        redirectTo:'posts',
+        pathMatch: 'full'
+      },
       {path: 'todos', loadChildren: () => import('../todos/todos.module').then(m => m.TodosModule)},
-      {path: 'documents', loadChildren: () => import('../documents/documents.module').then(m => m.DocumentsModule)},
+      {
+        path: 'documents',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('../documents/documents.module').then(m => m.DocumentsModule)},
       {path: 'auth', loadChildren: () => import('../auth/auth.module').then(m => m.AuthModule)}
     ]},
 ]
@@ -25,12 +37,15 @@ const routes: Routes = [
     exports: [
         NavigationComponent
     ],
-  imports: [
-    CommonModule,
-    RouterModule.forChild(routes),
-    MatButtonToggleModule,
-    MatCardModule,
-    MatButtonModule
-  ]
+    providers: [
+      AuthGuard
+    ],
+    imports: [
+      CommonModule,
+      RouterModule.forChild(routes),
+      MatButtonToggleModule,
+      MatCardModule,
+      MatButtonModule
+          ]
 })
 export class HomeModule { }

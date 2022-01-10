@@ -38,6 +38,7 @@ export class AuthService {
 
   deleteAuth(): void {
     Cookie.delete('id_token');
+    location.reload()
   }
 }
 

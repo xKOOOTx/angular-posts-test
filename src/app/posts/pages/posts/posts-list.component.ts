@@ -8,6 +8,8 @@ import {MatDialog} from '@angular/material/dialog';
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss']
 })
+
+
 export class PostsListComponent implements OnInit, OnDestroy {
 
   data: any;

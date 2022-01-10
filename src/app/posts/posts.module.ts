@@ -15,6 +15,7 @@ import { PostsTableComponent } from './pages/table/posts-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {PostsHomeComponent} from './pages/posts-home/posts-home.component';
+import {AuthGuard} from '../services/auth.guard';
 
 // const routes: Routes = [
 //   {path: '', component: PostsListComponent, children: [
@@ -28,7 +29,13 @@ const routes: Routes = [
   {path: '', component: PostsHomeComponent, children: [
       {path: '', redirectTo: '', component: PostsListComponent, pathMatch:'full'},
       {path: 'postsTable', pathMatch: 'full', component: PostsTableComponent},
-      {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
+      {
+        path: 'addPost',
+        canActivate: [AuthGuard],
+        canDeactivate: [AuthGuard],
+        pathMatch: 'full',
+        component: AddPostComponent
+      },
     ]},
   {path: ':id', component: SinglePostComponent},
 ]
