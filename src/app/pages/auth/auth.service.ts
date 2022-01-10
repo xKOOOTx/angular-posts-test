@@ -40,3 +40,5 @@ export class AuthService {
     Cookie.delete('id_token');
   }
 }
+
+// рабочий логин и пароль для проверки "email": "nilson@email.com", "password":"nilson"
