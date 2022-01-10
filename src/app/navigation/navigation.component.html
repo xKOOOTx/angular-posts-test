@@ -19,9 +19,16 @@
       Documents
     </mat-button-toggle>
   </a>
-  <a routerLink="auth">
+  <a
+    *ngIf="!checkAuth()"
+    routerLink="auth">
     <mat-button-toggle>
       Login and register
+    </mat-button-toggle>
+  </a>
+  <a *ngIf="checkAuth()" (click)="logout()">
+    <mat-button-toggle>
+      Выйти
     </mat-button-toggle>
   </a>
 </div>

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, Validator, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, Validators} from '@angular/forms';
+import { AuthService } from '../auth.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -12,11 +15,14 @@ export class LoginComponent implements OnInit {
   loginForm: any;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
 
   ngOnInit(): void {
+    this.checkAuth()
     this.initLoginForm()
   }
 
@@ -35,4 +41,14 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  submitFunc() {
+    this.authService.submitForm(this.loginForm)
+  }
+
+  checkAuth() {
+    if(this.authService.getAuth()) {
+      this.authService.isUserLoggedIn = true
+      this.router.navigate(['/posts'])
+    }
+  }
 }

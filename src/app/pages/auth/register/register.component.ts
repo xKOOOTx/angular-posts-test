@@ -22,7 +22,7 @@ import {
 } from '@angular/forms';
 import {MAT_FORM_FIELD, MatFormField, MatFormFieldControl} from '@angular/material/form-field';
 import {Subject} from 'rxjs';
-
+import {RegisterService} from '../register.service';
 
 
 @Component({
@@ -35,9 +35,11 @@ export class RegisterComponent implements OnInit {
   registerForm: any;
   age: any;
   email = new FormControl('', [Validators.required, Validators.email]);
+  hide: boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
+    private registerService: RegisterService
     ) { }
 
   ngOnInit(): void {
@@ -51,6 +53,7 @@ export class RegisterComponent implements OnInit {
       age: 0,
       gender: '',
       email: this.email,
+      password: '',
       tel: new FormControl(new MyTel('', '', '')),
     })
   }
@@ -69,7 +72,8 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.getPhoneNumber()
-    console.log(this.registerForm.value)
+    this.registerService.submitForm(this.registerForm)
+    // console.log(this.registerForm.value)
   }
 }
 
