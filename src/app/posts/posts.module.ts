@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {PostsListComponent} from './pages/posts/posts-list.component';
 import {SinglePostComponent} from './pages/single-post/single-post.component';
@@ -14,17 +14,23 @@ import {MatInputModule} from '@angular/material/input';
 import { PostsTableComponent } from './pages/table/posts-table.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { PostsHomeComponent } from './pages/posts-home/posts-home.component';
+import {PostsHomeComponent} from './pages/posts-home/posts-home.component';
+
+// const routes: Routes = [
+//   {path: '', component: PostsListComponent, children: [
+//       {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
+//       {path: 'postsTable', pathMatch: 'full', component: PostsTableComponent},
+//     ]},
+//   {path: ':id', component: SinglePostComponent},
+// ]
 
 const routes: Routes = [
-  {path: '', component: PostsListComponent, children: [
-      {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
+  {path: '', component: PostsHomeComponent, children: [
+      {path: '', redirectTo: '', component: PostsListComponent, pathMatch:'full'},
       {path: 'postsTable', pathMatch: 'full', component: PostsTableComponent},
+      {path: 'addPost', pathMatch: 'full', component: AddPostComponent},
     ]},
   {path: ':id', component: SinglePostComponent},
-
-
-
 ]
 
 @NgModule({
@@ -33,7 +39,7 @@ const routes: Routes = [
     SinglePostComponent,
     AddPostComponent,
     PostsTableComponent,
-    PostsHomeComponent
+    PostsHomeComponent,
   ],
   imports: [
     CommonModule,

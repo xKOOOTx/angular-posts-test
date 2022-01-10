@@ -20,6 +20,7 @@ import {MyTelInput} from './register/register.component';
 const routes: Routes = [
   {path: '', component: AuthComponent, children: [
       {path: 'login', component: LoginComponent},
+      {path: '', redirectTo:'login', pathMatch: 'full'},
       {path: 'register', component: RegisterComponent},
     ]},
 

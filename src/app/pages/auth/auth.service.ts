@@ -9,8 +9,8 @@ import {Router} from '@angular/router';
 export class AuthService {
 
 
+  // url сервера для проверки логина
   loginUrl: string = 'http://localhost:8000/auth/login'
-  isUserLoggedIn: boolean | undefined
 
   constructor(
     private http: HttpClient,
@@ -33,10 +33,7 @@ export class AuthService {
     // 0.0208333333 this accepts day not minutes
     // 0.0208333333 = 30 minutes
     Cookie.set('id_token', value, 0.0208333333);
-      this.router.navigate(['/posts'])
-    if (this.getAuth()) {
-      location.reload()
-    }
+    this.router.navigate(['/posts'])
   }
 
   deleteAuth(): void {

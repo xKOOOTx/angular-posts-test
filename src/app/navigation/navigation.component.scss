@@ -1,6 +1,7 @@
 .navigation {
   display: flex;
   justify-content: center;
+  column-gap: 10px;
   &__element{
     &_link {
       width: 100%;

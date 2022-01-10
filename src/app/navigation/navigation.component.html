@@ -1,34 +1,27 @@
 <div class="navigation center">
-  <a routerLink="">
-    <mat-button-toggle>
-      Home
-    </mat-button-toggle>
-  </a>
-  <a routerLink="posts">
-    <mat-button-toggle>
-      Posts
-    </mat-button-toggle>
-  </a>
-  <a routerLink="todos">
-    <mat-button-toggle>
-      Todos
-    </mat-button-toggle>
-  </a>
-  <a routerLink="documents">
-    <mat-button-toggle>
-      Documents
-    </mat-button-toggle>
+  <a
+    routerLink=""
+    mat-raised-button> Home
   </a>
   <a
-    *ngIf="!checkAuth()"
-    routerLink="auth">
-    <mat-button-toggle>
-      Login and register
-    </mat-button-toggle>
+    routerLink="todos"
+    mat-raised-button
+  > Todos
   </a>
-  <a *ngIf="checkAuth()" (click)="logout()">
-    <mat-button-toggle>
-      Выйти
-    </mat-button-toggle>
+  <a
+    routerLink="documents"
+    mat-raised-button
+  > Documents </a>
+  <a
+    routerLink="auth"
+    *ngIf="!checkAuth()"
+    mat-raised-button
+  > Login and register
+  </a>
+  <a
+    *ngIf="checkAuth()"
+    (click)="logout()"
+    mat-raised-button
+  > Выйти
   </a>
 </div>

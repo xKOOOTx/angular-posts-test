@@ -18,12 +18,11 @@ export class NavigationComponent implements OnInit {
 
   logout() {
     this.authService.deleteAuth()
-    location.reload()
   }
 
   checkAuth() {
     // checking auth if true return true, false - false
-    return !!this.authService.isUserLoggedIn;
+    return !!this.authService.getAuth();
   }
 
 }

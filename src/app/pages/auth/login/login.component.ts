@@ -47,7 +47,6 @@ export class LoginComponent implements OnInit {
 
   checkAuth() {
     if(this.authService.getAuth()) {
-      this.authService.isUserLoggedIn = true
       this.router.navigate(['/posts'])
     }
   }

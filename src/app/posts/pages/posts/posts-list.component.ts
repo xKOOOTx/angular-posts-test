@@ -34,8 +34,4 @@ export class PostsListComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe()
   }
 
-  // foo(id:any) {
-  //   this.postService.getSinglePost(id);
-  // }
-
 }

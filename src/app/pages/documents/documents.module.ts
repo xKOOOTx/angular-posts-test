@@ -19,6 +19,7 @@ import {MatButtonModule} from '@angular/material/button';
 const routes: Routes = [
   {path: '',  component: DocumentsComponent, children: [
       {path: 'sendNew', component: SendDocumentPageComponent},
+      {path: '', redirectTo:'sendNew', pathMatch:'full'},
       {path: 'history', component: DocumentsHistoryComponent, children: [
           {path: ':id', component: SingleHistoryDocumentComponent}
         ]}
