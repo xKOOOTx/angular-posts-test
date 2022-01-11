@@ -16,7 +16,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'sendNew', pathMatch: 'full'},
       {path: 'sendNew', component: SendDocumentPageComponent},
       {path: 'history', pathMatch:'full', component: DocumentsHistoryComponent, children: [
-          {path: 'historySingle', pathMatch: 'full', component: SingleHistoryViewComponent, outlet: 'historySingle'},
+          {path: 'historySingle', pathMatch: 'full', component: SingleHistoryViewComponent},
         ]},
     ]},
 

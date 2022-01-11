@@ -2,14 +2,14 @@
   <div class="document__history_list">
     <a
       *ngFor="let item of history"
-      [routerLink]="[{ outlets: { historySingle: ['historySingle', item.id] } }]">
+      [routerLink]="['historySingle/', item.id]">
       <mat-card>
         <h2>{{ item.title }}</h2>
       </mat-card>
     </a>
   </div>
   <div class="document__history_single">
-    <router-outlet name="historySingle"></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </div>
 
