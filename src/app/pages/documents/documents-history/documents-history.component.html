@@ -1,8 +1,25 @@
-<router-outlet></router-outlet>
-<a
-  *ngFor="let item of history"
-  [routerLink]="['./', item.id]">
-  <mat-card>
-    <h2>{{ item.title }}</h2>
-  </mat-card>
-</a>
+<div class="document__history">
+  <div class="document__history_list">
+    <a
+      *ngFor="let item of history"
+      [routerLink]="[{ outlets: { historySingle: ['historySingle', item.id] } }]">
+      <mat-card>
+        <h2>{{ item.title }}</h2>
+      </mat-card>
+    </a>
+  </div>
+  <div class="document__history_single">
+    <router-outlet name="historySingle"></router-outlet>
+  </div>
+</div>
+
+
+<!--
+  <a
+    *ngFor="let item of history"
+    [routerLink]="['./', item.id]">
+    <mat-card>
+      <h2>{{ item.title }}</h2>
+    </mat-card>
+  </a>
+ -->

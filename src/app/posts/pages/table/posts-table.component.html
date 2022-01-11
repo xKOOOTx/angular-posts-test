@@ -32,6 +32,8 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
 
+  <mat-spinner *ngIf="isLoad" class="preloader"></mat-spinner>
+
   <mat-paginator [pageSizeOptions]="[10, 20]"
                  showFirstLastButtons
                  aria-label="Select page of periodic elements">

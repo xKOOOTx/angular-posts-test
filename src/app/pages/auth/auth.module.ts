@@ -6,22 +6,17 @@ import {AuthComponent} from './auth/auth.component';
 import {RegisterComponent} from './register/register.component';
 import {AppComponent} from '../../app.component';
 import {AuthNavComponent} from './auth-nav/auth-nav.component';
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatOptionModule} from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
 import {MyTelInput} from './register/register.component';
+import {MaterialModule} from '../../shared/material/material.module';
+import {RegisterGuard} from './register/register.guard';
 
 
 const routes: Routes = [
   {path: '', component: AuthComponent, children: [
       {path: 'login', component: LoginComponent},
       {path: '', redirectTo:'login', pathMatch: 'full'},
-      {path: 'register', component: RegisterComponent},
+      {path: 'register', component: RegisterComponent, canDeactivate: [RegisterGuard]},
     ]},
 
 ];
@@ -38,17 +33,15 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatIconModule,
-    MatFormFieldModule,
     ReactiveFormsModule,
-    MatButtonModule,
-    MatInputModule,
-    MatOptionModule,
-    MatSelectModule,
-    MatCardModule,
+    MaterialModule
   ],
   exports: [
     MyTelInput
   ],
+  providers: [
+    RegisterComponent,
+    RegisterGuard
+  ]
 })
 export class AuthModule { }

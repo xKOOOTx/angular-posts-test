@@ -1,5 +1,18 @@
 .documents__navigation {
+  height: 100%;
+}
+
+
+.mat-card {
+  height: 100%;
   display: flex;
-  justify-content: center;
-  column-gap: 10px;
+  flex-direction: column;
+  row-gap: 20px;
+  margin: 10px;
+  a {
+    transition: background-color .2s ease-in-out;
+    &:hover {
+      background-color: darken(#fff, 10%);
+    }
+  }
 }

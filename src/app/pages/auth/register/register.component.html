@@ -1,4 +1,7 @@
-<form action="" [formGroup]="registerForm" class="register-form form" (ngSubmit)="onSubmit()">
+<ng-template #alreadyRegistered>
+  <p>Вы зарегистрированы</p>
+</ng-template>
+<form action="" *ngIf="!userRegistered else alreadyRegistered" [formGroup]="registerForm" class="register-form form" (ngSubmit)="onSubmit()" (change)="changingForm()">
   <mat-form-field appearance="fill">
     <mat-label>Имя</mat-label>
     <input matInput formControlName="name">
@@ -10,7 +13,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Возраст</mat-label>
     <mat-select formControlName="age">
-      <mat-option *ngFor="let value of age" value="{{ value }}">{{ value }}</mat-option>
+      <mat-option *ngFor="let value of ageArr" value="{{ value }}">{{ value }}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
@@ -21,6 +24,15 @@
       <mat-option value="helicopter">Боевой вертолет</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your password</mat-label>
+    <input class="login-form__input" matInput formControlName="password" [type]="hide ? 'password' : 'text'">
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+  </mat-form-field>
+
   <mat-form-field appearance="fill">
     <mat-label>Enter your email</mat-label>
     <input matInput placeholder="pat@example.com" formControlName="email" required>
@@ -32,14 +44,6 @@
     <example-tel-input formControlName="tel" required></example-tel-input>
     <mat-icon matSuffix>phone</mat-icon>
     <mat-hint>Include area code</mat-hint>
-  </mat-form-field>
-
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your password</mat-label>
-    <input class="login-form__input" matInput formControlName="password" [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-    </button>
   </mat-form-field>
 
   <button mat-raised-button color="primary">Зарегистрироваться</button>

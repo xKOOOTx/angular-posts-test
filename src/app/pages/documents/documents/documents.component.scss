@@ -1,0 +1,11 @@
+.documents {
+  display: flex;
+  padding: 100px 0;
+
+}
+
+app-navigation, .documents__body {
+  flex: 1;
+}
+
+

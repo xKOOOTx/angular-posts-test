@@ -35,5 +35,4 @@ export class PostsListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe()
   }
-
 }

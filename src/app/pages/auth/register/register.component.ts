@@ -33,9 +33,12 @@ import {RegisterService} from '../register.service';
 export class RegisterComponent implements OnInit {
 
   registerForm: any;
+  ageArr: Array<any> = []
   age: any;
   email = new FormControl('', [Validators.required, Validators.email]);
   hide: boolean = true;
+  userRegistered: boolean = false;
+  isFormFilled: boolean = false
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,6 +47,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.initRegisterForm();
+    this.fillAge()
   }
 
   initRegisterForm () {
@@ -58,22 +62,36 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  fillAge() {
+    for (let i = 0; i < 100; i++) {
+      this.ageArr.push(i)
+    }
+  }
+
   getErrorMessage() {
     if (this.email.hasError('required')) {
       return 'You must enter a value';
     }
-
     return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
-  getPhoneNumber() {
-
+  onSubmit() {
+    this.userRegistered = false
+    if (!this.getErrorMessage()) {
+      this.registerForm.reset()
+      this.registerService.submitForm(this.registerForm)
+      this.userRegistered = true
+    }
+    console.log(this.registerForm.value)
   }
 
-  onSubmit() {
-    this.getPhoneNumber()
-    this.registerService.submitForm(this.registerForm)
-    // console.log(this.registerForm.value)
+  changingForm() {
+    if (this.registerForm.value) {
+      console.log('register if: ' + this.isFormFilled)
+      this.isFormFilled = true
+    } else {
+      this.isFormFilled = false
+    }
   }
 }
 

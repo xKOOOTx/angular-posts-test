@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentHistoryService} from '../../../services/document-history.service';
+import {DocumentHistoryService} from '../../../../services/document-history.service';
 
 @Component({
   selector: 'app-single-history-document',

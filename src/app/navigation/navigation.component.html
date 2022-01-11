@@ -1,27 +1,38 @@
 <div class="navigation center">
   <a
     routerLink=""
-    mat-raised-button> Home
+    mat-raised-button
+    class="navigation__element button"
+  >
+    Домой
   </a>
   <a
     routerLink="todos"
     mat-raised-button
-  > Todos
+    class="navigation__element button"
+  >
+    Todos
   </a>
   <a
     routerLink="documents"
     mat-raised-button
-  > Documents </a>
+    class="navigation__element button"
+  >
+    Документы </a>
   <a
     routerLink="auth"
     *ngIf="!checkAuth()"
     mat-raised-button
-  > Login and register
+    class="navigation__element button"
+  >
+    Войти/Зарегистрироваться
   </a>
   <a
     *ngIf="checkAuth()"
     (click)="logout()"
     mat-raised-button
-  > Выйти
+    class="navigation__element button"
+  >
+    Выйти
   </a>
 </div>
